@@ -10,7 +10,19 @@ public class AppController {
 
     @GetMapping(value = "/")
     public String mainForm(){
-        return "index" ;
+
+        return "redirect:/login" ;
+    }
+
+    @GetMapping(value = "/login")
+    public String loginForm(){
+        return "login";
+    }
+
+    @PostMapping(value = "/login")
+    public String login(){
+
+        return "index";
     }
 
 

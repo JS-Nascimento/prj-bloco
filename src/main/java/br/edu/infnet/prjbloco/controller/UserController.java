@@ -13,10 +13,15 @@ public class UserController {
     public String callFormRegister () {
         return "user/register";
     }
+
+    @GetMapping(value = "/user/viewList")
+    public String callViewList () {
+        return "user/viewList";
+    }
     @PostMapping(value = "/user/create")
     public String create( User user ){
         System.out.println("Inclusão" + user);
-        return "redirect:/";
+        return "redirect:/user/viewList";
     }
 
 }
