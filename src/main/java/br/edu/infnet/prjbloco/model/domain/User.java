@@ -13,8 +13,7 @@ public class User {
     private String[] caracteristicas;
     private String tipo;
     private String setor;
-    private int idade;
-    private float salario;
+
 
     public User(String email, String senha) {
         this.setEmail(email);
@@ -30,13 +29,11 @@ public class User {
     public String toString() {
 
         return String.format(
-                "O usuário %s tem as credenciais %s e %s, %d anos e ganha R$%.2f. "
+                "O usuário %s tem as credenciais %s e %s . "
                         + "É um usuário do tipo %s, atua no setor %s e tem %d características",
                 nome,
                 email,
                 senha,
-                idade,
-                salario,
                 tipo,
                 setor,
                 caracteristicas.length

@@ -9,7 +9,7 @@
 <body>
 <div class="container-fluid container-sm">
     <form class="border border-light rounded p-5" action="user/create" method="post">
-        <h3>Cadastro de Usuário</h3>
+        <h3>Cadastro de Usuários</h3>
 
         <div class="form-group">
             <label>Nome:</label>
@@ -26,15 +26,6 @@
             <input type="email" name="email" value="elberth@gmail.com" class="form-control">
         </div>
 
-        <div class="form-group">
-            <label>Idade:</label>
-            <input type="text" name="idade" value="44" class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label>Salário:</label>
-            <input type="text" name="salario" value="999999" class="form-control">
-        </div>
 
         <div class="form-group">
             <label>Características:</label>
