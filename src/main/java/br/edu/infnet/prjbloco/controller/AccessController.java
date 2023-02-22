@@ -6,19 +6,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
-public class AppController {
-
-    @GetMapping(value = "/")
-    public String indexForm(){
-
-        return "redirect:/login" ;
-    }
-    @GetMapping(value = "/home")
-    public String mainForm(){
-
-        return "index" ;
+public class AccessController {
+    @GetMapping(value = "/login")
+    public String loginForm(){
+        return "login";
     }
 
+    @PostMapping(value = "/login")
+    public String login(){
 
+        return "index";
+    }
 
 }
