@@ -13,7 +13,7 @@
 
         <div class="form-group">
             <label>Nome:</label>
-            <input type="text" name="nome" value="Elberth Moraes" class="form-control">
+            <input type="text" name="nome" value="Jorge Nascimento" class="form-control">
         </div>
 
         <div class="form-group">
@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label>E-mail:</label>
-            <input type="email" name="email" value="elberth@gmail.com" class="form-control">
+            <input type="email" name="email" value="jorge@gmail.com" class="form-control">
         </div>
 
 
@@ -75,7 +75,7 @@
         </div>
         <div class="mt-3">
             <button class="btn btn-primary " type="submit">Cadastrar</button>
-            <button class="btn btn-danger " type="cancel">Cancelar</button>
+            <button class="btn btn-danger " type="button">Cancelar</button>
         </div>
     </form>
 </div>
