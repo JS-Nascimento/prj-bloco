@@ -3,6 +3,7 @@ package br.edu.infnet.prjbloco.controller;
 import br.edu.infnet.prjbloco.model.domain.User;
 import br.edu.infnet.prjbloco.model.repository.UserRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -12,20 +13,19 @@ import java.util.List;
 @Controller
 public class UserController {
 
+    private String message;
+
     @GetMapping(value = "/user")
     public String callFormRegister () {
         return "user/register";
     }
 
     @GetMapping(value = "/user/viewList")
-    public String callViewList () {
+    public String callViewList ( Model model) {
 
-        List<User> list = UserRepository.getViewList();
-        System.out.println("Qtd de Usuários : " + list.size());
-
-        for(User user : list){
-            System.out.printf("%S - %s\n", user.getNome(), user.getEmail());
-        }
+        model.addAttribute( "users", UserRepository.getViewList() );
+        model.addAttribute( "message", message );
+        message = null;
 
         return "user/viewList";
     }
@@ -34,6 +34,8 @@ public class UserController {
     public String create( User user ){
 
         UserRepository.create( user );
+
+        message = user.getNome() + " incluído com sucesso.";
 
         return "redirect:/user/viewList";
     }

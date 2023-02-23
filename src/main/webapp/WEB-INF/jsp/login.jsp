@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +8,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <%
+        String message = (String) request.getAttribute( "message" );
+    %>
 
 <div class="container-sm border border-light rounded">
     <h3>Login</h3>
+    <%if (message != null){%>
+        <div class="alert alert-danger">
+            <strong>Atenção</strong> <%=message%>.
+        </div>
+    <%}%>
+
+
+
     <form  class="border border-light rounded p-3" action="/login" method="post">
         <div class="mb-3 mt-3">
             <label for="email" class="form-label">Email:</label>
