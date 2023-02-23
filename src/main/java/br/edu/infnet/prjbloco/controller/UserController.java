@@ -4,8 +4,7 @@ import br.edu.infnet.prjbloco.model.domain.User;
 import br.edu.infnet.prjbloco.model.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,7 +34,17 @@ public class UserController {
 
         UserRepository.create( user );
 
-        message = user.getNome() + " incluído com sucesso.";
+        message = "Usuário <strong>"+ user.getNome() + "</strong> incluído com sucesso.";
+
+        return "redirect:/user/viewList";
+    }
+
+    @GetMapping( value = "/user/delete/{id}")
+    public String delete(@PathVariable Integer id ){
+
+        UserRepository.delete( id );
+
+        message = "Id <strong>" + id + "</strong> excluído com sucesso.";
 
         return "redirect:/user/viewList";
     }

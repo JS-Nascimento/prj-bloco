@@ -8,17 +8,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <%
-        String message = (String) request.getAttribute( "message" );
-    %>
 
 <div class="container-sm border border-light rounded">
     <h3>Login</h3>
-    <%if (message != null){%>
+    <c:if test="${not empty message}">
+
         <div class="alert alert-danger">
-            <strong>Atenção</strong> <%=message%>.
+            <strong>Atenção</strong> ${message}.
         </div>
-    <%}%>
+
+    </c:if>
 
 
 
