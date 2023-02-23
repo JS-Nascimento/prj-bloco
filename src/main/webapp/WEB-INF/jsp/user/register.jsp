@@ -25,54 +25,6 @@
             <label>E-mail:</label>
             <input type="email" name="email" value="jorge@gmail.com" class="form-control">
         </div>
-
-
-        <div class="form-group">
-            <label>Características:</label>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" name="caracteristicas" value="De" class="form-check-input" > Developer
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" name="caracteristicas" value="An" checked class="form-check-input"> Analista
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" name="caracteristicas" value="Da" class="form-check-input"> Database
-                </label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Tipo:</label>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" name="tipo" value="P" class="form-check-input" > Padrão
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" name="tipo" value="D" class="form-check-input"> Diretor
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" name="tipo" value="A" checked class="form-check-input"> Administrador
-                </label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Setor:</label>
-            <select name="setor" class="form-control">
-                <option value="1">Diretoria</option>
-                <option value="2">Comercial</option>
-                <option value="3" selected>Desenvolvimento</option>
-            </select>
-        </div>
         <div class="mt-3">
             <button class="btn btn-primary " type="submit">Cadastrar</button>
             <button class="btn btn-danger " type="button">Cancelar</button>

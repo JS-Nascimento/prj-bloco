@@ -21,9 +21,6 @@
             <th>Nome</th>
             <th>Senha</th>
             <th>E-mail</th>
-            <th>Características</th>
-            <th>Tipo</th>
-            <th>Setor</th>
 
         </tr>
         </thead>
@@ -32,27 +29,19 @@
             <td>Elberth Moraes</td>
             <td>123</td>
             <td>elberth.moraes@prof.infnet.edu.br</td>
-            <td>Programador, Pai, Professor</td>
-            <td>Administrador</td>
-            <td>Infnet</td>
 
         </tr>
         <tr>
             <td>Elberth Moraes</td>
             <td>123</td>
             <td>elberth.moraes@prof.infnet.edu.br</td>
-            <td>Programador, Pai, Professor</td>
-            <td>Administrador</td>
-            <td>Infnet</td>
 
         </tr>
         <tr>
             <td>Elberth Moraes</td>
             <td>123</td>
             <td>elberth.moraes@prof.infnet.edu.br</td>
-            <td>Programador, Pai, Professor</td>
-            <td>Administrador</td>
-            <td>Infnet</td>
+
 
         </tr>
         </tbody>
