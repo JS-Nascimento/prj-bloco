@@ -22,8 +22,8 @@ public class UserRepository {
         }
     }
 
-    public static void delete(Integer id){
-        mapUser.remove( id );
+    public static User delete(Integer id){
+         return mapUser.remove( id );
     }
 
     public static List<User> getViewList(){

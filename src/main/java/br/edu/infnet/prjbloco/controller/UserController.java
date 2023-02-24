@@ -42,9 +42,9 @@ public class UserController {
     @GetMapping( value = "/user/delete/{id}")
     public String delete(@PathVariable Integer id ){
 
-        UserRepository.delete( id );
+        User user = UserRepository.delete( id );
 
-        message = "Id <strong>" + id + "</strong> excluído com sucesso.";
+        message = "Usuário <strong>" + user.getNome() + "</strong> excluído com sucesso.";
 
         return "redirect:/user/viewList";
     }
