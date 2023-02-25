@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Projeto de Bloco - Java WEB</title>
+    <title>EmprestaNet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Clientes</a>
+                    <a class="nav-link " aria-current="page" href="/costumer">Clientes</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Modalidades de Empréstimos</a>
