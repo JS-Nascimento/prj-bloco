@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container-fluid container-sm">
-    <form class="border border-light rounded p-5" action="user/create" method="post">
+    <form class="border border-light rounded p-5" action="costumer/create" method="post">
         <h3>Cadastro de Solicitantes</h3>
         <div class="py-2 my-2 row  border border-success rounded">
         <h6>Informações Cadastrais</h6>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container-fluid container-sm">
-    <form class="border border-light rounded p-5" action="costumer" method="post">
+    <form class="border border-light rounded p-5" action="user/create" method="post">
         <h3>Cadastro de Usuários</h3>
 
         <div class="form-group">
