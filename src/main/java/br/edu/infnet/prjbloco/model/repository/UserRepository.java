@@ -1,16 +1,13 @@
 package br.edu.infnet.prjbloco.model.repository;
 
 import br.edu.infnet.prjbloco.model.domain.User;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+@Repository
+public interface UserRepository extends CrudRepository<User, Integer> {
 
-public class UserRepository {
-    private static Integer id = 1;
-    private static Map <Integer, User> mapUser = new HashMap <>();
+   /* private static Map <Integer, User> mapUser = new HashMap <>();
 
     public static boolean create (User user){
         user.setId( id++ );
@@ -32,5 +29,5 @@ public class UserRepository {
                 .stream()
                 .collect(Collectors.toList());
 
-    }
+    }*/
 }

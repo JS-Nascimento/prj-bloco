@@ -2,10 +2,17 @@ package br.edu.infnet.prjbloco.model.domain;
 
 import lombok.*;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 @NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String senha;

@@ -10,7 +10,7 @@
 <div class="container-fluid container-sm">
     <form class="border border-light rounded p-5" action="costumer/create" method="post">
         <h3>Cadastro de Solicitantes</h3>
-        <div class="py-2 my-2 row  border border-success rounded">
+        <div class="py-2 my-2 row  border-start  border-5 border-success rounded shadow-sm">
         <h6>Informações Cadastrais</h6>
 
         <div class="form-group">
@@ -25,11 +25,11 @@
 
             <div class="col form-group">
                 <label>Idade</label>
-                <input type="number" name="idade" step="1" min="1" value="0" class="form-control text-right">
+                <input type="number" name="idade" step="1" min="1" value="1" class="form-control text-right">
             </div>
         </div>
 
-        <div class="py-3 my-2 row  border border-primary rounded">
+        <div class="py-3 mt-4 mb-2 row  border-start border-5  border-primary rounded shadow-sm">
             <h6>Informações Financeiras</h6>
             <div class=" col form-group ">
                 <label>Renda Total</label>
