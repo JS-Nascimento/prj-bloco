@@ -25,7 +25,7 @@ public class Costumer {
     @NotEmpty
     private String nome;
     private String cpf;
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private TipoCliente tipoCliente;
     @Column(precision = 3, scale = 0)
     private Integer idade;
@@ -40,6 +40,8 @@ public class Costumer {
     private BigDecimal limiteTotal;
     @Column(precision = 12, scale = 2)
     private BigDecimal limiteDisponivel;
+
+
 
 
 
