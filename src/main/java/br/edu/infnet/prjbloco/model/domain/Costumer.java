@@ -40,10 +40,8 @@ public class Costumer {
     private BigDecimal limiteTotal;
     @Column(precision = 12, scale = 2)
     private BigDecimal limiteDisponivel;
-
-
-
-
+    @ManyToOne()
+    private User user;
 
 
 }

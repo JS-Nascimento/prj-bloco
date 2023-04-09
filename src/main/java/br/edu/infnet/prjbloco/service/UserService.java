@@ -1,20 +1,22 @@
 package br.edu.infnet.prjbloco.service;
 
 import br.edu.infnet.prjbloco.model.domain.User;
-import br.edu.infnet.prjbloco.service.impl.UserServiceImpl;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 public interface UserService {
-    public User create(User user) ;
+    User create(User user);
 
-    public List<User> getAllUsers();
+    List<User> getAllUsers();
 
-    public User delete(Integer id);
+    User delete(Integer id);
 
-    public User getUserById(Integer id);
+    User getUserById(Integer id);
 
-    public User update(User user, Integer id);
+    User update(User user, Integer id);
+
+    User getUserByEmail(String email);
+
+    Boolean emailExist(String newEmail);
 }
