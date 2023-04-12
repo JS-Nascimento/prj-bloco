@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Setter
 @Getter
@@ -42,6 +43,10 @@ public class Costumer {
     private BigDecimal limiteDisponivel;
     @ManyToOne()
     private User user;
+
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "loan_id")
+    private List<Loan> loans;
 
 
 }

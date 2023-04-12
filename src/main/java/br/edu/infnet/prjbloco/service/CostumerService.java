@@ -1,18 +1,18 @@
 package br.edu.infnet.prjbloco.service;
 
 import br.edu.infnet.prjbloco.model.domain.Costumer;
-
+import br.edu.infnet.prjbloco.model.domain.User;
 
 import java.util.List;
 
 public interface CostumerService {
-    public Costumer create(Costumer costumer) ;
+    Costumer create(Costumer costumer) ;
 
-    public List<Costumer> getAllCostumers();
+    List<Costumer> getAllCostumers(User user);
 
-    public Costumer delete(Integer id);
+    Costumer delete(Integer id);
 
-    public Costumer getCostumerById(Integer id);
+    Costumer getCostumerById(Integer id);
 
-    public Costumer update(Costumer costumer, Integer id);
+    Costumer update(Costumer costumer, Integer id);
 }

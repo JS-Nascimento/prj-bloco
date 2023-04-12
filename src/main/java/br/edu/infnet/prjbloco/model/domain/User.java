@@ -1,5 +1,6 @@
 package br.edu.infnet.prjbloco.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,9 +28,20 @@ public class User {
     private String secretKey;
     @Column(name = "nivel_acesso")
     private Integer nivelAcesso;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private List<Costumer> costumerList;
+
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private List<LoanType> loanTypes;
+
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "loan_id")
+    @JsonIgnore
+    private List<Loan> loans;
 
 
     public User(String email, String senha) {

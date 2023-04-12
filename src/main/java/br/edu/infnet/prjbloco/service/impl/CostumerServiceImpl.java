@@ -2,7 +2,6 @@ package br.edu.infnet.prjbloco.service.impl;
 
 import br.edu.infnet.prjbloco.model.domain.Costumer;
 import br.edu.infnet.prjbloco.model.domain.User;
-import br.edu.infnet.prjbloco.model.domain.enuns.TipoCliente;
 import br.edu.infnet.prjbloco.model.repository.CostumerRepository;
 import br.edu.infnet.prjbloco.service.CostumerService;
 import org.modelmapper.ModelMapper;
@@ -10,13 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Service
 public class CostumerServiceImpl implements CostumerService {
-    private ModelMapper modelMapper;
-    private CostumerRepository repository;
+    private final ModelMapper modelMapper;
+    private final CostumerRepository repository;
     public CostumerServiceImpl(ModelMapper modelMapper, CostumerRepository repository) {
         this.modelMapper = modelMapper;
         this.repository = repository;
@@ -33,10 +30,8 @@ public class CostumerServiceImpl implements CostumerService {
     }
 
     @Override
-    public List<Costumer> getAllCostumers() {
-        Iterable<Costumer> costumers = repository.findAll();
-        return StreamSupport.stream(costumers.spliterator(),false)
-                .collect(Collectors.toList());
+    public List<Costumer> getAllCostumers(User user) {
+        return repository.findAllByUserOrderByNomeAsc(user);
     }
 
     @Override

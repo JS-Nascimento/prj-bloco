@@ -30,9 +30,9 @@ public class CostumerController {
     }
 
     @GetMapping(value = "/costumer/viewList")
-    public String callViewList(Model model) {
+    public String callViewList(Model model, @SessionAttribute("userLogged") User user) {
 
-        model.addAttribute("costumers", service.getAllCostumers());
+        model.addAttribute("costumers", service.getAllCostumers(user));
         model.addAttribute("tiposClientes", TipoCliente.values());
         model.addAttribute("message", message);
 
