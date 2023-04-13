@@ -55,12 +55,12 @@
                 <div class=" col-4 form-group">
                     <label>Limite Total Total</label>
                     <input type="number" name="limiteTotal" step="0.01" min="0.00"
-                           value="0.00" ${user.nivelAcesso != 3 ? 'disabled' : ''} class="form-control text-right">
+                           value="0.00" ${user.nivelAcesso == 2 ? 'readonly' : ''} class="form-control text-right">
                 </div>
                 <div class=" col-4 form-group">
                     <label>Limite Total Disponível</label>
                     <input type="number" name="limiteDisponivel" step="0.01" min="0.00"
-                           value="0.00" ${user.nivelAcesso != 3 ? 'disabled' : ''} class="form-control text-right">
+                           value="0.00" readonly class="form-control text-right">
                 </div>
                 <div class="col-4 form-group">
                     <label>Score</label>

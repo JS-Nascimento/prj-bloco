@@ -1,9 +1,7 @@
 package br.edu.infnet.prjbloco.controller;
 
 import br.edu.infnet.prjbloco.DTO.LoanTypeDTO;
-import br.edu.infnet.prjbloco.model.domain.Loan;
-import br.edu.infnet.prjbloco.model.domain.LoanType;
-import br.edu.infnet.prjbloco.model.domain.User;
+import br.edu.infnet.prjbloco.model.domain.*;
 import br.edu.infnet.prjbloco.service.CostumerService;
 import br.edu.infnet.prjbloco.service.LoanService;
 import br.edu.infnet.prjbloco.service.LoanTypeService;
@@ -13,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -26,6 +26,7 @@ public class LoanController {
     private final LoanTypeService loanTypeService;
     private String message;
     private Integer messageType;
+
     public LoanController(LoanService service, CostumerService costumerService, LoanTypeService loanTypeService) {
         this.service = service;
         this.costumerService = costumerService;
@@ -37,7 +38,6 @@ public class LoanController {
 
         model.addAttribute("message", message);
         model.addAttribute("costumers", costumerService.getAllCostumers(loggedUser));
-        model.addAttribute("message", message);
         model.addAttribute("messageType", messageType);
         message = null;
         messageType = 2;
@@ -65,8 +65,31 @@ public class LoanController {
     }
 
     @PostMapping(value = "/loan/create")
-    public String create(Model model, Loan efectiveLoan,
+    public String create(Model model,
+                         @RequestParam("costumer") String costumer_id,
+                         @RequestParam("loanType") String loan_type_id,
+                         @RequestParam("interestRate") String interestRate,
+                         @RequestParam("gracePeriod") String grace,
+                         @RequestParam("loanTerm") String term,
+                         @RequestParam("totalRequired") String totalR,
+                         @RequestParam("totalLoan") String totalL,
+
                          @SessionAttribute("userLogged") User loggedUser) {
+
+
+        Loan efectiveLoan = new Loan();
+
+        efectiveLoan.setCostumer(costumerService.getCostumerById(Integer.parseInt(costumer_id)));
+        efectiveLoan.setLoanType(loanTypeService.getLoanType(Integer.parseInt(loan_type_id)));
+        efectiveLoan.setGracePeriod(Integer.parseInt(grace));
+        efectiveLoan.setInterestRate(new BigDecimal((interestRate)));
+        efectiveLoan.setLoanTerm(Integer.parseInt(term));
+        efectiveLoan.setTotalRequired(new BigDecimal(totalR));
+        efectiveLoan.setTotalLoan(new BigDecimal(totalL));
+        efectiveLoan.setRegistrantUser(loggedUser);
+        efectiveLoan.setApprovedAt(LocalDate.now());
+        efectiveLoan.setStatus(1);
+
 
         Loan newLoan = service.saveLoan(efectiveLoan);
 
@@ -92,6 +115,24 @@ public class LoanController {
         return "redirect:/loan/viewList";
     }
 
+    @GetMapping(value = "/loan/update/{id}")
+    public String update(@PathVariable Integer id,
+                         @SessionAttribute("userLogged") User loggedUser) {
+
+        String response = service.update(id, loggedUser);
+
+        if ("SUCCESS".equalsIgnoreCase(response)) {
+            message = "Liberação concluída com sucesso.";
+            messageType = 2;
+        } else {
+            message = "Erro ao liberar registro.";
+            messageType = 1;
+        }
+
+
+        return "redirect:/loan/viewList";
+    }
+
     @Transactional
     @RequestMapping(value = "/updateSelectLoanType", method = RequestMethod.GET)
     @ResponseBody
@@ -103,10 +144,10 @@ public class LoanController {
             valorTipoCliente = "SERVANT";
         }
 
-        // Suponhamos que você obtenha os dados atualizados em uma variável chamada "dadosAtualizados"
+
         List<LoanTypeDTO> dadosAtualizados = loanTypeService.getAllLoansForCombo(valorTipoCliente);
 
-        // Retorne os dados atualizados como uma resposta HTTP com o código de status 200 (OK)
+
         return ResponseEntity.ok(dadosAtualizados);
     }
 
@@ -115,10 +156,36 @@ public class LoanController {
     @ResponseBody
     public ResponseEntity<LoanType> updateFieldsLoanType(@RequestParam("valorModalidade") String valorModalidade) {
 
-        // Suponhamos que você obtenha os dados atualizados em uma variável chamada "dadosAtualizados"
+
         LoanType dadosAtualizados = loanTypeService.getLoanType(Integer.parseInt(valorModalidade));
 
-        // Retorne os dados atualizados como uma resposta HTTP com o código de status 200 (OK)
+
+        return ResponseEntity.ok(dadosAtualizados);
+    }
+
+    @Transactional
+    @RequestMapping(value = "/updateLimitLoan", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<Costumer> updateLimitLoan(@RequestParam("idCliente") String idCliente) {
+
+        Costumer dadosAtualizados = costumerService.getCostumerById(Integer.parseInt(idCliente));
+
+        return ResponseEntity.ok(dadosAtualizados);
+
+    }
+
+    @Transactional
+    @RequestMapping(value = "/getInstalments", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<List<Installments>> getInstalments(
+            @RequestParam("loanTerm") String loanTerm,
+            @RequestParam("gracePeriod") String gracePeriod,
+            @RequestParam("totalLoan") String totalLoan,
+            @RequestParam("interestRate") String interestRate) {
+
+
+        List<Installments> dadosAtualizados = service.getInstallments(Integer.parseInt(loanTerm), Integer.parseInt(gracePeriod), new BigDecimal(totalLoan), new BigDecimal(interestRate));
+
         return ResponseEntity.ok(dadosAtualizados);
     }
 }

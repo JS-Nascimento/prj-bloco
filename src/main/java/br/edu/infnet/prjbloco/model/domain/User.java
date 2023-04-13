@@ -43,6 +43,11 @@ public class User {
     @JsonIgnore
     private List<Loan> loans;
 
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "registrantLoan_id")
+    @JsonIgnore
+    private List<Loan> registrantLoans;
+
 
     public User(String email, String senha) {
         this.setEmail(email);

@@ -29,7 +29,16 @@ public class Installments {
 
     private LocalDate dueDate;
 
-    private String status;
+    public Installments(Integer installment, BigDecimal installmentAmount, LocalDate dueDate) {
+        this.installment = installment;
+        this.installmentAmount = installmentAmount;
+        this.dueDate = dueDate;
+    }
 
-
+    public Installments(Loan loan, Integer installment, BigDecimal installmentAmount, LocalDate dueDate) {
+        this.loan = loan;
+        this.installment = installment;
+        this.installmentAmount = installmentAmount;
+        this.dueDate = dueDate;
+    }
 }

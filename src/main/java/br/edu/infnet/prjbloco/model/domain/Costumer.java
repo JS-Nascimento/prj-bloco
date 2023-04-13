@@ -48,6 +48,9 @@ public class Costumer {
     @JoinColumn(name = "loan_id")
     private List<Loan> loans;
 
-
+    public Costumer(Integer id, BigDecimal limiteDisponivel) {
+        this.id = id;
+        this.limiteDisponivel = limiteDisponivel;
+    }
 }
 

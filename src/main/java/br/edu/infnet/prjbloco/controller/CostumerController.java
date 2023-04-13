@@ -57,6 +57,7 @@ public class CostumerController {
     public String create(Costumer costumer, @SessionAttribute("userLogged") User user) {
 
         costumer.setUser(user);
+        costumer.setLimiteDisponivel(costumer.getLimiteTotal());
 
         Costumer newCostumer = service.create(costumer);
 

@@ -18,14 +18,11 @@
                     <a class="nav-link " aria-current="page" href="/costumer/viewList">Clientes</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/loantype/viewList" role="button"
-                       data-bs-toggle="dropdown">Modalidades de
-                        Empréstimos</a>
-                        <%--<ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/loantype/viewList">Listagem</a></li>
-    &lt;%&ndash;                        <li><a class="dropdown-item" href="#">Servidores</a></li>
-                            <li><a class="dropdown-item" href="#">Antecipação do FGTS</a></li>&ndash;%&gt;
-                        </ul>--%>
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-bs-toggle="dropdown">Modalidades de Empréstimos</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/loantype/viewList">Listagem</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="/loan/viewList">Efetivação</a>
